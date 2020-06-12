@@ -1,0 +1,5 @@
+body{background-color:#262526;color:#D6D0D6;font-size:large}
+.hints section{font-size:x-large;padding:20px;background-color:#302F30}
+.hints section:hover{background-color:#403E40}
+.hr{border-color:#2D1533}
+.whichGame{background-color:black;}
