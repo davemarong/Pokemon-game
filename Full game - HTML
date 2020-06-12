@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section>
+    <h1> Hey! I made a little game, and here is how it works:</h1> 
+    </section>
+    <br /><br /> 
+    
+    <section>
+    <h2>Step 1: Choose a game!</h2>
+    <p>There are 3 games, each with a different pokemon. The choice is yours.</p>
+    <ul class="whichGame">
+      <li>Game 1 - <i>Easy     </i> <input class="game1" type="button" value="Choose"></input></li> 
+      <li>Game 2 - <i>Intermidiate     </i><input class="game2" type="button" value="Choose"></input></li>
+      <li>Game 3 - <i>Hard     </i><input class="game3" type="button" value="Choose"></input></li>
+    
+    </ul>
+    </section>  
+    <br /><br />
+    
+    <section>
+    <h2>Step 2: Find out who it is!</h2>
+    
+    <p>You have to guess which pokemon I have chosen. You have 8 hints, but your goal is to guess the right one while using the least amount of hints. To pick a hint, just click on it. </p> 
+    
+    
+    <section class="hintCount"></section>
+    
+    <section class="hints">
+     
+    <figure><section class="Type">?</section>
+      <figcaption><i>Type</i></figcaption></figure>
+    <hr class="hr">
+    <figure><section class="Type2">?</section> 
+      <figcaption><i>Type2</i></figcaption></figure>
+    <hr class="hr">
+    <figure><section class="Species">?</section>
+      <figcaption><i>Species</i></figcaption></figure>
+    <hr class="hr">
+    <figure><section class="PrimaryColor">?</section> 
+      <figcaption><i>Primary Color</i></figcaption></figure>
+    <hr class="hr">
+    <figure><section class="SecondaryColor">?</section>
+      <figcaption><i>Secondary Color</i></figcaption></figure>
+    <hr class="hr">
+    <figure><section class="Generation">?</section>
+      <figcaption><i>Generation</i></figcaption></figure>
+    <hr class="hr">
+    <figure><section class="EvulotionStages">?</section>
+      <figcaption><i>Evulutionary Stages</i></figcaption></figure>
+    <hr class="hr">
+    <figure><section class="MegaEvolve">?</section>
+      <figcaption><i>Mega Evolution</i></figcaption></figure>
+      <br />
+      <label>Want to start over or choose another game?      <input type="button" value="Reset" class="resetButton">
+      </label>
+    </section>
+    
+    </section> 
+    <br /><br />
+   
+    <section>
+    
+    <h2>Step 3: Write your answer!</h2>
+    <p>The time has come. Have you figured it out?</p>
+    <label>Type in your answer
+    <input class="UserGuess" type="text">
+    </label>
+    <input class="GuessButton" type="button" value="Choose!">
+    <section class="guessResponse"></section> 
+    <br /><br />
+    
+    
+    </section>
+    
+    <script>
+      
+        let game1 = document.querySelector(".game1")
+        let game2 = document.querySelector(".game2")
+        let game3 = document.querySelector(".game3")
+        
+        game1.addEventListener("click", charizardGame)
+        game2.addEventListener("click", gengarGame)
+        game3.addEventListener("click", snorlaxGame)
+         
+        let Type = document.querySelector(".Type");
+        let Type2 = document.querySelector(".Type2");
+        let Species = document.querySelector(".Species");
+        let PrimaryColor = document.querySelector(".PrimaryColor");
+        let SecondaryColor = document.querySelector(".SecondaryColor");
+        let Generation = document.querySelector(".Generation");
+        let EvulotionStages = document.querySelector(".EvulotionStages");
+        let MegaEvolve = document.querySelector(".MegaEvolve");
+          
+        let hints = document.querySelector(".hints")
+        let resetButton = document.querySelector(".resetButton")
+        let GuessButton = document.querySelector(".GuessButton"); 
+        let UserGuess = document.querySelector(".UserGuess");
+        let guessResponse = document.querySelector(".guessResponse");
+        let hintCount = document.querySelector(".hintCount");
+        let hintCounter = 0;
+      
+        function charizardGame (){
+          
+          let answer = "Charizard";
+          game2.disabled = true;
+          game3.disabled = true;
+          function checkAnswer(){
+          if (UserGuess.value === answer){
+            guessResponse.textContent = "Congratulations!!! You did it!"
+          }
+          else{
+            guessResponse.textContent = "Im sorry, thats not the answer we are looking for..."
+          }
+        } 
+      
+          function CharizardType(){
+          if (Type.textContent === "Fire"){
+          }
+          else {
+            Type.textContent = "Fire"; 
+            hintCounter++; 
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";} 
+        } 
+          function CharizardType2(){
+          if (Type2.textContent === "Flying"){  
+          }
+          else {
+            Type2.textContent = "Flying";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function CharizardSpecies(){
+          if (Species.textContent === "Dragon"){
+          }
+          else {
+            Species.textContent ="Dragon";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }   
+          function CharizardPrimaryColor(){
+          if (PrimaryColor.textConten === "Orange"){            
+          }
+          else {
+            PrimaryColor.textContent = "Orange";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function CharizardSecondaryColor(){
+          if (SecondaryColor.textContent === "Tan"){
+          }
+          else {
+            SecondaryColor.textContent = "Tan";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function CharizardGeneration(){
+          if (Generation.textContent === "Gen 1"){
+          }
+          else {
+            Generation.textContent = "Gen 1";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function CharizardEvulotionStages(){
+          if (EvulotionStages.textContent === "3 Stages"){
+          }
+          else {
+            EvulotionStages.textContent = "3 stages";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }      
+          function CharizardMegaEvolve(){
+          if (MegaEvolve.textContent === "Yes"){
+          }
+          else {
+            MegaEvolve.textContent = "Yes";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+        
+          function resetGame(){
+          hintCounter = 0;
+          guessResponse.textContent = "";
+          game1.disabled = false;
+          game2.disabled = false;
+          game3.disabled = false;
+          hintCount.textContent = "";
+          Type.textContent = "?";
+          Type2.textContent = "?";
+          Species.textContent = "?";
+          PrimaryColor.textContent = "?";
+          SecondaryColor.textContent = "?";
+          Generation.textContent = "?";
+          EvulotionStages.textContent = "?";
+          MegaEvolve.textContent = "?";
+          if (answer === "Charizard"){
+            resetCharizard ();}
+          else if (answer === "Gengar"){
+            resetGengar();
+          }
+          else if (answer === "Snorlax"){
+            resetSnorlax();
+          }
+          };
+          function resetCharizard (){
+          Type.removeEventListener("click", CharizardType);
+          Type2.removeEventListener("click", CharizardType2);
+          Species.removeEventListener("click", CharizardSpecies);
+          PrimaryColor.removeEventListener("click", CharizardPrimaryColor);
+          SecondaryColor.removeEventListener("click", CharizardSecondaryColor);
+          Generation.removeEventListener("click", CharizardGeneration);
+          EvulotionStages.removeEventListener("click", CharizardEvulotionStages);
+          MegaEvolve.removeEventListener("click", CharizardMegaEvolve);
+          
+         
+       };
+          
+          Type.addEventListener("click", CharizardType);
+          Type2.addEventListener("click", CharizardType2);
+          Species.addEventListener("click", CharizardSpecies);
+          PrimaryColor.addEventListener("click", CharizardPrimaryColor);
+          SecondaryColor.addEventListener("click", CharizardSecondaryColor);
+          Generation.addEventListener("click", CharizardGeneration);
+          EvulotionStages.addEventListener("click", CharizardEvulotionStages);
+          MegaEvolve.addEventListener("click", CharizardMegaEvolve);
+
+          GuessButton.addEventListener("click", checkAnswer);    
+          resetButton.addEventListener("click", resetGame); 
+
+        };  
+      
+        function gengarGame (){
+          let answer = "Gengar";
+          game1.disabled = true;
+          game3.disabled = true;
+          function checkAnswer(){
+          if (UserGuess.value === answer){
+            guessResponse.textContent = "Congratulations!!! You did it!"
+          }
+          else{
+            guessResponse.textContent = "Im sorry, thats not the answer we are looking for..."
+          }
+        } 
+      
+          function GengarType(){
+          if (Type.textContent === "Ghost"){
+          }
+          else {
+            Type.textContent = "Ghost"; 
+            hintCounter++; 
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";} 
+        } 
+          function GengarType2(){
+          if (Type2.textContent === "Poison"){  
+          }
+          else {
+            Type2.textContent = "Poison";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function GengarSpecies(){
+          if (Species.textContent === "Ghost"){
+          }
+          else {
+            Species.textContent ="Ghost";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }   
+          function GengarPrimaryColor(){
+          if (PrimaryColor.textConten === "Purple"){            
+          }
+          else {
+            PrimaryColor.textContent = "Purple";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        } 
+          function GengarSecondaryColor(){
+          if (SecondaryColor.textContent === "Purple"){
+          }
+          else {
+            SecondaryColor.textContent = "Purple";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function GengarGeneration(){
+          if (Generation.textContent === "Gen 1"){
+          }
+          else {
+            Generation.textContent = "Gen 1";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function GengarEvulotionStages(){
+          if (EvulotionStages.textContent === "3 Stages"){
+          }
+          else {
+            EvulotionStages.textContent = "3 stages";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }      
+          function GengarMegaEvolve(){
+          if (MegaEvolve.textContent === "Yes"){
+          }
+          else {
+            MegaEvolve.textContent = "Yes";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function resetGengar (){
+          Type.removeEventListener("click", GengarType);
+          Type2.removeEventListener("click", GengarType2);
+          Species.removeEventListener("click", GengarSpecies);
+          PrimaryColor.removeEventListener("click", GengarPrimaryColor);
+          SecondaryColor.removeEventListener("click", GengarSecondaryColor);
+          Generation.removeEventListener("click", GengarGeneration);
+          EvulotionStages.removeEventListener("click", GengarEvulotionStages);
+          MegaEvolve.removeEventListener("click", GengarMegaEvolve);
+       }
+          function resetGame(){
+          hintCounter = 0;
+          guessResponse.textContent = "";
+          game1.disabled = false;
+          game2.disabled = false;
+          game3.disabled = false;
+          hintCount.textContent = "";
+          Type.textContent = "?";
+          Type2.textContent = "?";
+          Species.textContent = "?";
+          PrimaryColor.textContent = "?";
+          SecondaryColor.textContent = "?";
+          Generation.textContent = "?";
+          EvulotionStages.textContent = "?";
+          MegaEvolve.textContent = "?";
+          if (answer === "Charizard"){
+            resetCharizard ();}
+          else if (answer === "Gengar"){
+            resetGengar();
+          }
+          else if (answer === "Snorlax"){
+            resetSnorlax();
+          }
+          }
+          
+          Type.addEventListener("click", GengarType);
+          Type2.addEventListener("click", GengarType2);
+          Species.addEventListener("click", GengarSpecies);
+          PrimaryColor.addEventListener("click", GengarPrimaryColor);
+          SecondaryColor.addEventListener("click", GengarSecondaryColor);
+          Generation.addEventListener("click", GengarGeneration);
+          EvulotionStages.addEventListener("click", GengarEvulotionStages);
+          MegaEvolve.addEventListener("click", GengarMegaEvolve);
+
+          GuessButton.addEventListener("click", checkAnswer); 
+          resetButton.addEventListener("click", resetGame);
+       
+        };
+      
+        function snorlaxGame(){
+          let answer = "Snorlax";
+          game1.disabled = true;
+          game2.disabled = true;
+          function checkAnswer(){
+          if (UserGuess.value === answer){
+            guessResponse.textContent = "Congratulations!!! You did it!"
+          }
+          else{
+            guessResponse.textContent = "Im sorry, thats not the answer we are looking for..."
+          }
+        } 
+      
+          function SnorlaxType(){
+          if (Type.textContent === "Normal"){
+          }
+          else {
+            Type.textContent = "Normal"; 
+            hintCounter++; 
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}  
+        } 
+          function SnorlaxType2(){
+          if (Type2.textContent === "Normal"){  
+          }
+          else {
+            Type2.textContent = "Normal";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function SnorlaxSpecies(){
+          if (Species.textContent === "Bear"){
+          }
+          else {
+            Species.textContent ="Bear";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }   
+          function SnorlaxPrimaryColor(){
+          if (PrimaryColor.textConten === "Green"){            
+          }
+          else {
+            PrimaryColor.textContent = "Green";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function SnorlaxSecondaryColor(){
+          if (SecondaryColor.textContent === "White"){
+          }
+          else {
+            SecondaryColor.textContent = "White";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";} 
+        }
+          function SnorlaxGeneration(){
+          if (Generation.textContent === "Gen 1"){
+          }
+          else {
+            Generation.textContent = "Gen 1";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }
+          function SnorlaxEvulotionStages(){
+          if (EvulotionStages.textContent === "1 Stage"){
+          }
+          else {
+            EvulotionStages.textContent = "1 stage";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";}
+        }      
+          function SnorlaxMegaEvolve(){
+          if (MegaEvolve.textContent === "Yes"){
+          }
+          else {
+            MegaEvolve.textContent = "Yes";
+            hintCounter++;
+            hintCount.textContent = "Hints unlocked: " + hintCounter + "/8";
+          }
+        }
+        
+          function resetGame(){
+          hintCounter = 0;
+          guessResponse.textContent = "";
+          game1.disabled = false;
+          game2.disabled = false;
+          game3.disabled = false;
+          hintCount.textContent = "";
+          Type.textContent = "?";
+          Type2.textContent = "?";
+          Species.textContent = "?";
+          PrimaryColor.textContent = "?";
+          SecondaryColor.textContent = "?";
+          Generation.textContent = "?";
+          EvulotionStages.textContent = "?";
+          MegaEvolve.textContent = "?";
+          if (answer === "Charizard"){
+            resetCharizard ();}
+          else if (answer === "Gengar"){
+            resetGengar();
+          }
+          else if (answer === "Snorlax"){
+            resetSnorlax();
+          }
+          }  
+          function resetSnorlax(){
+          Type.removeEventListener("click", SnorlaxType);
+          Type2.removeEventListener("click", SnorlaxType2);
+          Species.removeEventListener("click", SnorlaxSpecies);
+          PrimaryColor.removeEventListener("click", SnorlaxPrimaryColor);
+          SecondaryColor.removeEventListener("click", SnorlaxSecondaryColor);
+          Generation.removeEventListener("click", SnorlaxGeneration);
+          EvulotionStages.removeEventListener("click", SnorlaxEvulotionStages);
+          MegaEvolve.removeEventListener("click", SnorlaxMegaEvolve);
+        }
+          
+          Type.addEventListener("click", SnorlaxType);
+          Type2.addEventListener("click", SnorlaxType2);
+          Species.addEventListener("click", SnorlaxSpecies);
+          PrimaryColor.addEventListener("click", SnorlaxPrimaryColor);
+          SecondaryColor.addEventListener("click", SnorlaxSecondaryColor);
+          Generation.addEventListener("click", SnorlaxGeneration);
+          EvulotionStages.addEventListener("click", SnorlaxEvulotionStages);
+          MegaEvolve.addEventListener("click", SnorlaxMegaEvolve);
+
+          GuessButton.addEventListener("click", checkAnswer); 
+          resetButton.addEventListener("click", resetGame); 
+        };    
+    </script>  
+  </body>
+</html>
